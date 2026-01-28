@@ -1,0 +1,191 @@
+/* Variables de tema y colores base */
+:root {
+    --bg: linear-gradient(135deg, #0f172a 0%, #111827 50%, #0b1224 100%);
+    --panel: rgba(255, 255, 255, 0.04);
+    --panel-stroke: rgba(255, 255, 255, 0.08);
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #22d3ee;
+    --accent-strong: #0ea5e9;
+    --danger: #ef4444;
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* Reset básico de box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Fondo y layout principal centrado */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: var(--bg);
+    color: var(--text);
+    font-family: "Space Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+    display: grid;
+    place-items: center;
+    padding: 32px 16px;
+}
+
+/* Contenedor máximo */
+.page {
+    width: min(960px, 100%);
+}
+
+/* Tarjeta translúcida estilo glass */
+.card {
+    background: var(--panel);
+    border: 1px solid var(--panel-stroke);
+    border-radius: 18px;
+    padding: 32px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(6px);
+}
+
+/* Espaciado del encabezado */
+.card__header {
+    margin-bottom: 24px;
+}
+
+.card__header h1 {
+    margin: 4px 0 8px;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+}
+
+/* Texto superior decorativo */
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 11px;
+    color: var(--accent);
+    margin: 0;
+}
+
+/* Subtítulo tenue */
+.lede {
+    margin: 0;
+    color: var(--muted);
+}
+
+/* Layout del formulario */
+.form {
+    display: grid;
+    gap: 18px;
+}
+
+/* Grupo de campo + etiqueta */
+.field {
+    display: grid;
+    gap: 6px;
+}
+
+.field label {
+    font-weight: 600;
+}
+
+/* Apariencia de los inputs */
+.field input {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--panel-stroke);
+    border-radius: 12px;
+    padding: 12px 14px;
+    color: var(--text);
+    font-size: 16px;
+    outline: none;
+    transition: border 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Realce al enfocar */
+.field input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2);
+}
+
+/* Ayuda bajo cada campo */
+.field small {
+    color: var(--muted);
+}
+
+/* Contenedor de botones y pista */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Botón principal con gradiente */
+button {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+    color: #0b1224;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 14px 30px rgba(14, 165, 233, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Animación hover */
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 18px 36px rgba(14, 165, 233, 0.45);
+}
+
+/* Estado presionado */
+button:active {
+    transform: translateY(0);
+}
+
+/* Texto de pista junto al botón */
+.hint {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Caja de alertas (errores) */
+.alert {
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(239, 68, 68, 0.08);
+    color: #fecdd3;
+    padding: 12px 14px;
+    margin-bottom: 4px;
+    line-height: 1.5;
+}
+
+/* Listado dentro de alertas */
+.alert ul {
+    margin: 6px 0 0 18px;
+}
+
+/* Versión sin fondo rojo */
+.alert--ghost {
+    background: transparent;
+    color: var(--danger);
+    border-color: rgba(239, 68, 68, 0.5);
+}
+
+/* Estilo para snippets en línea */
+code {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 3px 6px;
+    border-radius: 6px;
+}
+
+/* Ajustes responsive para móviles */
+@media (max-width: 640px) {
+    .card {
+        padding: 24px 20px;
+    }
+
+    .card__header h1 {
+        font-size: 24px;
+    }
+}

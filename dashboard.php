@@ -1,12 +1,14 @@
 <?php
 declare(strict_types=1);
-session_start();
+session_start(); // accede a la sesión ya creada tras login
 
+// Si no hay usuario autenticado, redirige al login
 if (empty($_SESSION['user_id'])) {
     header('Location: index.php');
     exit;
 }
 
+// Escapa el nombre de usuario para mostrarlo de forma segura
 $username = htmlspecialchars((string)($_SESSION['username'] ?? 'usuario'), ENT_QUOTES, 'UTF-8');
 ?>
 <!doctype html>
